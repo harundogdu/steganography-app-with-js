@@ -2,10 +2,10 @@ const fs = require("fs");
 
 module.exports.upload = async (req, res) => {
     try {
-        const text = String(req.body.text);
+        const encryptedText = String(req.body.encryptedText);
         const file = req.files.file;
 
-        if (!text || !file) {
+        if (!encryptedText || !file) {
             res.status(400).send('Bad request');
             return;
         }
@@ -23,7 +23,7 @@ module.exports.upload = async (req, res) => {
             }
         })
 
-        fs.writeFileSync(stringPath, text, (err) => {
+        fs.writeFileSync(stringPath, encryptedText, (err) => {
             if (err) {
                 console.log(err);
                 return res.status(500).send(err);

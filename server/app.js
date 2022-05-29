@@ -14,7 +14,6 @@ app.use(express.urlencoded({extended: true}));
 app.use(fileupload());
 
 /* Routers */
-
 app.use('/api', apiRouter);
 app.use('/', (req, res) => {
     res.send("Welcome to the API");

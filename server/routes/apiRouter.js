@@ -3,6 +3,7 @@ const router = express.Router();
 const apiController = require('../controllers/apiController.js');
 
 router
-    .post('/upload', apiController.upload);
+    .post('/encrypt', apiController.encrypt)
+    .post('/decrypt', apiController.decrypt)
 
 module.exports = router;

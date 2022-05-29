@@ -20,12 +20,13 @@ function App() {
         formData.append('file', file);
         formData.append('encryptedText', encryptedText);
 
-        axios.post(`${LOCALHOST}/upload`, formData, {
+        axios.post(`${LOCALHOST}/encrypt`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
         })
             .then(res => {
+                console.log(res);
                 setStatus(res.status);
                 setEncryptedText('');
                 setFile(null);
@@ -82,7 +83,7 @@ function App() {
                         onClick={handleEncrypt}
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     >
-                        Encrypt & Upload
+                        Encrypt & Download
                     </button>
                     <button
                         onClick={handleDecrypt}
